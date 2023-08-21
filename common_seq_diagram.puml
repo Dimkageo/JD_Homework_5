@@ -1,0 +1,33 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+participant App
+participant Fibonacci
+participant ResultPrinter
+
+App -> Fibonacci: iterativeFibonacci(n)
+activate Fibonacci
+Fibonacci -> Fibonacci: calculations
+Fibonacci <-- App: iterativeResult
+deactivate Fibonacci
+
+App -> Fibonacci: recursiveFibonacci(n)
+activate Fibonacci
+Fibonacci -> Fibonacci: calculations
+Fibonacci <-- App: recursiveResult
+deactivate Fibonacci
+
+App -> Fibonacci: dynamicProgrammingFibonacci(n)
+activate Fibonacci
+Fibonacci -> Fibonacci: calculations
+Fibonacci <-- App: dynamicResult
+deactivate Fibonacci
+
+App -> ResultPrinter: printResult(iterativeResult, recursiveResult, dynamicResult)
+activate ResultPrinter
+ResultPrinter -> ResultPrinter: print(result)
+deactivate ResultPrinter
+
+@enduml
